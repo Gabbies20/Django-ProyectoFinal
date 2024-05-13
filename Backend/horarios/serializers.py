@@ -59,3 +59,10 @@ class AusenciaSerializer(serializers.ModelSerializer):
        model = Ausencia
        fileds = '__all__'
 
+
+
+#SERIALIZADORES:
+class AsignaturaSerializerCreate(serializers.ModelSerializer):
+    class Meta:
+        model = Asignatura
+        fields = ['asignatura_cod','descripcion']

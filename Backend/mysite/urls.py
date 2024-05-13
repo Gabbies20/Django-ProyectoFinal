@@ -24,3 +24,7 @@ urlpatterns = [
     path('api/v1/',include("horarios.api_urls")),
     path('oauth2/', include('oauth2_provider.urls', namespace='oauth2_provider'))
 ]
+
+
+from django.conf.urls import handler404
+handler404 = 'rest_framework.exceptions.bad_request'

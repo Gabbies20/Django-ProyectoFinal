@@ -1,0 +1,10 @@
+<form action = "{% url 'login' %}" method = "post"> 
+    
+    {% load bootstrap5 %}
+    {% csrf_token %} 
+    {% bootstrap_form form %}         
+
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    {% endbuttons %}
+</form>
