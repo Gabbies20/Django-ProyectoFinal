@@ -43,7 +43,7 @@ def xml_data_view(request):
  
  
 #ASIGNATURAS:
-@api_view(['GET'])
+@api_view(['POST'])
 def crear_asignatura(request):
     serializers = AsignaturaSerializerCreate(data=request.data)
     if serializers.is_valid():
