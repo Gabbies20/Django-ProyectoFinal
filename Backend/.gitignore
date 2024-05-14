@@ -10,7 +10,7 @@ venv/
 
 # Database
 db.sqlite3
-
+datos.xml
 # Static folder at project root
 /static/
 

@@ -37,6 +37,28 @@ def asignaturas_list(request):
     return Response(serializer.data)
 
 
+
+@api_view(['GET'])
+def horarios_list(request):
+    horarios = Horario.objects.all()
+    serializer = HorarioSerializer(horarios,many=True)
+    return Response(serializer.data)
+
+
+
+@api_view(['GET'])
+def grupos_list(request):
+    grupos = Grupo.objects.all()
+    serializer = GrupoSerializer(grupos, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def franjas_list(request):
+    franjas = Franja.objects.all()
+    serializer = FranjaSerializer(franjas,many=True)
+    return Response(serializer.data)
+
 def xml_data_view(request):
     xml_file_path = os.path.join(settings.BASE_DIR, 'datos.xml')
     return FileResponse(open(xml_file_path, 'rb'))
@@ -56,6 +78,109 @@ def crear_asignatura(request):
         return Response(serializers.errors, status = status.HTTP_400_BAD_REQUEST)
  
 
+@api_view(['PUT'])
+def editar_asignatura(request, id):
+    asignatura = Asignatura.objects.get(asignatura_cod=id)
+    print(asignatura)
+    asignaturaCreateSerializer = AsignaturaSerializerCreate(data=request.data, instance=asignatura)
+    if asignaturaCreateSerializer.is_valid():
+        try:
+            asignaturaCreateSerializer.save()
+            return Response("Asignatura EDITADA")
+        except serializers.ValidationError as error:
+            return Response(error.detail, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as error:
+            return Response(repr(error), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    else:
+        return Response(asignaturaCreateSerializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+
+@api_view(['DELETE'])
+def eliminar_asignatura(request, id):
+    asignatura = Asignatura.objects.get(asignatura_cod=id)
+    try:
+        asignatura.delete()
+        return Response('Asignatura Eliminada')
+    except Exception as error:
+        return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 # @api_view(['GET'])
 # def asignaturas_list(request):
