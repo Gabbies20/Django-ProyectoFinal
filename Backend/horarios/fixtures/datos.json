@@ -1,0 +1,1782 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2024-05-13T23:00:36.170Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "DIW",
+        "object_repr": "Diseño de Interfaces Web",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2024-05-13T23:00:49.961Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "DAW",
+        "object_repr": "Desarrollo de Aplicaciones Web",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2024-05-13T23:01:05.711Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "DES",
+        "object_repr": "Desarrollo en Entorno Servidor",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2024-05-13T23:01:21.359Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "FOL",
+        "object_repr": "Formación y Orientación Laboral",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2024-05-13T23:12:30.719Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "1",
+        "object_repr": "admin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"User permissions\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2024-05-14T21:57:33.738Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "2",
+        "object_repr": "amparolr",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2024-05-14T21:58:17.440Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "3",
+        "object_repr": "anapf",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2024-05-14T21:59:21.712Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "4",
+        "object_repr": "jvilches",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2024-05-14T22:00:39.354Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "5",
+        "object_repr": "carlosv",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2024-05-14T22:04:08.078Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "6",
+        "object_repr": "joaquinm",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2024-05-14T22:04:58.393Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "7",
+        "object_repr": "jorgeba",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2024-05-14T22:07:01.963Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "8",
+        "object_repr": "aliciacg",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2024-05-14T22:08:13.841Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "ALR",
+        "object_repr": "Amparo",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2024-05-14T22:08:43.106Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "CGV",
+        "object_repr": "Carlos García Villarán",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2024-05-14T22:09:52.152Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "JMN",
+        "object_repr": "Joaquín Montero Navarro",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2024-05-14T22:10:27.691Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "APF",
+        "object_repr": "Ana Pérez Fernández",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2024-05-14T22:11:15.502Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "JMV",
+        "object_repr": "José Manuel Vilches Navarrete",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2024-05-14T22:12:25.689Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "JBA",
+        "object_repr": "Jorge Agustín Barón Abad",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2024-05-14T22:13:35.973Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "110",
+        "object_repr": "110",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2024-05-14T22:13:47.763Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "113",
+        "object_repr": "FISICA Y QUIMICA",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2024-05-14T22:13:57.697Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "112B",
+        "object_repr": "112B",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2024-05-14T22:14:10.122Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "116",
+        "object_repr": "INFORMATICA",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2024-05-14T22:14:16.478Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "114",
+        "object_repr": "114",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2024-05-14T22:14:33.664Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "111",
+        "object_repr": "TECNOLOGÍA DE AUTOMOCIÓN",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2024-05-14T22:14:43.646Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "125",
+        "object_repr": "ADMINISTRATIVO",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2024-05-14T22:14:58.343Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "128",
+        "object_repr": "INFORMATICA",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2024-05-14T22:15:35.870Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1A ES",
+        "object_repr": "1º A ESO",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2024-05-14T22:16:07.824Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1DAW",
+        "object_repr": "1º DESARROLLO DE APLICACIONES WEB",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2024-05-14T22:16:23.501Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "2DAW",
+        "object_repr": "2º DESARROLLO DE APLICACIONES WEB",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2024-05-14T22:16:51.454Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1STI",
+        "object_repr": "1º SISTEMAS TELECOMUNICACIONES",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2024-05-14T22:18:06.668Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "08:15 a 09:15",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2024-05-14T22:18:31.245Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "2",
+        "object_repr": "09:15 a 10:15",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2024-05-14T22:18:54.974Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "3",
+        "object_repr": "10:15 a 11:15",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2024-05-14T22:20:11.280Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "1001",
+        "object_repr": "Asignatura object (DAW) - L - 2º DESARROLLO DE APLICACIONES WEB",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2024-05-14T22:20:45.097Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "1002",
+        "object_repr": "Asignatura object (DIW) - M - 2º DESARROLLO DE APLICACIONES WEB",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2024-05-14T22:28:06.493Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "1004",
+        "object_repr": "Asignatura object (DES) - V - 2º DESARROLLO DE APLICACIONES WEB",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 1,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 1,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 1,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 1,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 2,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 2,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 2,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 2,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 3,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 3,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 3,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 3,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 4,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 4,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 4,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 4,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 5,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 5,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 5,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 5,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 6,
+        "codename": "add_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 6,
+        "codename": "change_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 6,
+        "codename": "delete_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 6,
+        "codename": "view_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add asignatura",
+        "content_type": 7,
+        "codename": "add_asignatura"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change asignatura",
+        "content_type": 7,
+        "codename": "change_asignatura"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete asignatura",
+        "content_type": 7,
+        "codename": "delete_asignatura"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view asignatura",
+        "content_type": 7,
+        "codename": "view_asignatura"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add aula",
+        "content_type": 8,
+        "codename": "add_aula"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change aula",
+        "content_type": 8,
+        "codename": "change_aula"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete aula",
+        "content_type": 8,
+        "codename": "delete_aula"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view aula",
+        "content_type": 8,
+        "codename": "view_aula"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add franja",
+        "content_type": 9,
+        "codename": "add_franja"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change franja",
+        "content_type": 9,
+        "codename": "change_franja"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete franja",
+        "content_type": 9,
+        "codename": "delete_franja"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view franja",
+        "content_type": 9,
+        "codename": "view_franja"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can add grupo",
+        "content_type": 10,
+        "codename": "add_grupo"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can change grupo",
+        "content_type": 10,
+        "codename": "change_grupo"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can delete grupo",
+        "content_type": 10,
+        "codename": "delete_grupo"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can view grupo",
+        "content_type": 10,
+        "codename": "view_grupo"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+        "name": "Can add profesor",
+        "content_type": 11,
+        "codename": "add_profesor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+        "name": "Can change profesor",
+        "content_type": 11,
+        "codename": "change_profesor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+        "name": "Can delete profesor",
+        "content_type": 11,
+        "codename": "delete_profesor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+        "name": "Can view profesor",
+        "content_type": 11,
+        "codename": "view_profesor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+        "name": "Can add horario",
+        "content_type": 12,
+        "codename": "add_horario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+        "name": "Can change horario",
+        "content_type": 12,
+        "codename": "change_horario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+        "name": "Can delete horario",
+        "content_type": 12,
+        "codename": "delete_horario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+        "name": "Can view horario",
+        "content_type": 12,
+        "codename": "view_horario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+        "name": "Can add ausencia",
+        "content_type": 13,
+        "codename": "add_ausencia"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+        "name": "Can change ausencia",
+        "content_type": 13,
+        "codename": "change_ausencia"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+        "name": "Can delete ausencia",
+        "content_type": 13,
+        "codename": "delete_ausencia"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+        "name": "Can view ausencia",
+        "content_type": 13,
+        "codename": "view_ausencia"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+        "name": "Can add application",
+        "content_type": 14,
+        "codename": "add_application"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+        "name": "Can change application",
+        "content_type": 14,
+        "codename": "change_application"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+        "name": "Can delete application",
+        "content_type": 14,
+        "codename": "delete_application"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+        "name": "Can view application",
+        "content_type": 14,
+        "codename": "view_application"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+        "name": "Can add access token",
+        "content_type": 15,
+        "codename": "add_accesstoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+        "name": "Can change access token",
+        "content_type": 15,
+        "codename": "change_accesstoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+        "name": "Can delete access token",
+        "content_type": 15,
+        "codename": "delete_accesstoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+        "name": "Can view access token",
+        "content_type": 15,
+        "codename": "view_accesstoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+        "name": "Can add grant",
+        "content_type": 16,
+        "codename": "add_grant"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+        "name": "Can change grant",
+        "content_type": 16,
+        "codename": "change_grant"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+        "name": "Can delete grant",
+        "content_type": 16,
+        "codename": "delete_grant"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+        "name": "Can view grant",
+        "content_type": 16,
+        "codename": "view_grant"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+        "name": "Can add refresh token",
+        "content_type": 17,
+        "codename": "add_refreshtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+        "name": "Can change refresh token",
+        "content_type": 17,
+        "codename": "change_refreshtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+        "name": "Can delete refresh token",
+        "content_type": 17,
+        "codename": "delete_refreshtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+        "name": "Can view refresh token",
+        "content_type": 17,
+        "codename": "view_refreshtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+        "name": "Can add id token",
+        "content_type": 18,
+        "codename": "add_idtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+        "name": "Can change id token",
+        "content_type": 18,
+        "codename": "change_idtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+        "name": "Can delete id token",
+        "content_type": 18,
+        "codename": "delete_idtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+        "name": "Can view id token",
+        "content_type": 18,
+        "codename": "view_idtoken"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "horarios",
+        "model": "usuario"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "horarios",
+        "model": "asignatura"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "horarios",
+        "model": "aula"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "horarios",
+        "model": "franja"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+        "app_label": "horarios",
+        "model": "grupo"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+        "app_label": "horarios",
+        "model": "profesor"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+        "app_label": "horarios",
+        "model": "horario"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+        "app_label": "horarios",
+        "model": "ausencia"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+        "app_label": "oauth2_provider",
+        "model": "application"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+        "app_label": "oauth2_provider",
+        "model": "accesstoken"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+        "app_label": "oauth2_provider",
+        "model": "grant"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+        "app_label": "oauth2_provider",
+        "model": "refreshtoken"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+        "app_label": "oauth2_provider",
+        "model": "idtoken"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "5c68fx5r72uyjn6vinskng8eht2h6hys",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSHlMR1x6b7fQIYBpGogKe3K-O_apAvd3nPOfQlP21r81tPi5yguQonT7xaIH6nuIN6p3prkVtdlDnJX5EG7nFpMz-vh_h0U6uVba8QIhqw2iQcCN9IImhUDO5XPmii4QQdgExCVYbBRGWswQ0KVIJN4fwDROzeS:1s6ZD1:LdQ88JP6SrnQ3DgrDY6e8R3M9C3cj9GjSUC19JAZ95g",
+        "expire_date": "2024-05-27T17:11:31.758Z"
+    }
+},
+{
+    "model": "horarios.usuario",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$B3Qv7y8oDZq7jLYCMWSPr6$KTFoqnGLSA1ruJYTuswLM2ZSrK24JAxlVvqZky5o9aY=",
+        "last_login": "2024-05-13T17:11:31Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@gmail.es",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-05-13T17:11:24Z",
+        "rol": 1,
+        "groups": [],
+        "user_permissions": [
+            1,
+            2,
+            3,
+            4,
+            9,
+            10,
+            11,
+            12,
+            5,
+            6,
+            7,
+            8,
+            13,
+            14,
+            15,
+            16,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            49,
+            50,
+            51,
+            52,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            45,
+            46,
+            47,
+            48,
+            41,
+            42,
+            43,
+            44,
+            21,
+            22,
+            23,
+            24,
+            57,
+            58,
+            59,
+            60,
+            53,
+            54,
+            55,
+            56,
+            61,
+            62,
+            63,
+            64,
+            69,
+            70,
+            71,
+            72,
+            65,
+            66,
+            67,
+            68,
+            17,
+            18,
+            19,
+            20
+        ]
+    }
+},
+{
+    "model": "horarios.usuario",
+    "pk": 2,
+    "fields": {
+        "password": "1234567891",
+        "last_login": "2024-05-14T21:55:16Z",
+        "is_superuser": false,
+        "username": "amparolr",
+        "first_name": "Amparo",
+        "last_name": "Lopez Rodriguez",
+        "email": "amparo@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-05-14T21:55:09Z",
+        "rol": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "horarios.usuario",
+    "pk": 3,
+    "fields": {
+        "password": "1234567891",
+        "last_login": "2024-05-14T21:57:42Z",
+        "is_superuser": false,
+        "username": "anapf",
+        "first_name": "Ana",
+        "last_name": "Pérez Fernández",
+        "email": "anapf@gmail.es",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-05-14T21:57:36Z",
+        "rol": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "horarios.usuario",
+    "pk": 4,
+    "fields": {
+        "password": "1234567891",
+        "last_login": "2024-05-14T21:58:39Z",
+        "is_superuser": false,
+        "username": "jvilches",
+        "first_name": "José Manuel",
+        "last_name": "Vilches Navarrete",
+        "email": "jvilches@hotmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-05-14T21:58:19Z",
+        "rol": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "horarios.usuario",
+    "pk": 5,
+    "fields": {
+        "password": "1234567891",
+        "last_login": "2024-05-14T21:59:32Z",
+        "is_superuser": false,
+        "username": "carlosv",
+        "first_name": "Carlos",
+        "last_name": "García Villarán",
+        "email": "carlosv@hotmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-05-14T21:59:24Z",
+        "rol": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "horarios.usuario",
+    "pk": 6,
+    "fields": {
+        "password": "1234567891",
+        "last_login": "2024-05-14T22:00:56Z",
+        "is_superuser": false,
+        "username": "joaquinm",
+        "first_name": "Joaquin Manuel",
+        "last_name": "Montero Navarro",
+        "email": "jmanuel@hotmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-05-14T22:00:42Z",
+        "rol": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "horarios.usuario",
+    "pk": 7,
+    "fields": {
+        "password": "1234567891",
+        "last_login": "2024-05-14T22:04:28Z",
+        "is_superuser": false,
+        "username": "jorgeba",
+        "first_name": "Jorge Agustín",
+        "last_name": "Barón Abad",
+        "email": "jorgea@hotmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-05-14T22:04:21Z",
+        "rol": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "horarios.usuario",
+    "pk": 8,
+    "fields": {
+        "password": "1234567891",
+        "last_login": "2024-05-14T22:06:23Z",
+        "is_superuser": false,
+        "username": "aliciacg",
+        "first_name": "Alicia",
+        "last_name": "Capote Gordillo",
+        "email": "aliciacg@gmail.es",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-05-14T22:04:58Z",
+        "rol": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "horarios.asignatura",
+    "pk": "DAW",
+    "fields": {
+        "descripcion": "Desarrollo de Aplicaciones Web"
+    }
+},
+{
+    "model": "horarios.asignatura",
+    "pk": "DES",
+    "fields": {
+        "descripcion": "Desarrollo en Entorno Servidor"
+    }
+},
+{
+    "model": "horarios.asignatura",
+    "pk": "DIW",
+    "fields": {
+        "descripcion": "Diseño de Interfaces Web"
+    }
+},
+{
+    "model": "horarios.asignatura",
+    "pk": "ED",
+    "fields": {
+        "descripcion": "Entornos de Desarrollo"
+    }
+},
+{
+    "model": "horarios.aula",
+    "pk": "110",
+    "fields": {
+        "descripcion": "110"
+    }
+},
+{
+    "model": "horarios.aula",
+    "pk": "111",
+    "fields": {
+        "descripcion": "TECNOLOGÍA DE AUTOMOCIÓN"
+    }
+},
+{
+    "model": "horarios.aula",
+    "pk": "112B",
+    "fields": {
+        "descripcion": "112B"
+    }
+},
+{
+    "model": "horarios.aula",
+    "pk": "113",
+    "fields": {
+        "descripcion": "FISICA Y QUIMICA"
+    }
+},
+{
+    "model": "horarios.aula",
+    "pk": "114",
+    "fields": {
+        "descripcion": "114"
+    }
+},
+{
+    "model": "horarios.aula",
+    "pk": "116",
+    "fields": {
+        "descripcion": "INFORMATICA"
+    }
+},
+{
+    "model": "horarios.aula",
+    "pk": "125",
+    "fields": {
+        "descripcion": "ADMINISTRATIVO"
+    }
+},
+{
+    "model": "horarios.aula",
+    "pk": "128",
+    "fields": {
+        "descripcion": "INFORMATICA"
+    }
+},
+{
+    "model": "horarios.franja",
+    "pk": "1",
+    "fields": {
+        "descripcion": "08:15 a 09:15",
+        "horadesde": "08:15:00",
+        "horahasta": "09:15:00"
+    }
+},
+{
+    "model": "horarios.franja",
+    "pk": "2",
+    "fields": {
+        "descripcion": "09:15 a 10:15",
+        "horadesde": "09:15:00",
+        "horahasta": "10:15:00"
+    }
+},
+{
+    "model": "horarios.franja",
+    "pk": "3",
+    "fields": {
+        "descripcion": "10:15 a 11:15",
+        "horadesde": "10:15:00",
+        "horahasta": "11:15:00"
+    }
+},
+{
+    "model": "horarios.grupo",
+    "pk": "1A ES",
+    "fields": {
+        "descripcion": "1º A ESO"
+    }
+},
+{
+    "model": "horarios.grupo",
+    "pk": "1DAW",
+    "fields": {
+        "descripcion": "1º DESARROLLO DE APLICACIONES WEB"
+    }
+},
+{
+    "model": "horarios.grupo",
+    "pk": "1STI",
+    "fields": {
+        "descripcion": "1º SISTEMAS TELECOMUNICACIONES"
+    }
+},
+{
+    "model": "horarios.grupo",
+    "pk": "2DAW",
+    "fields": {
+        "descripcion": "2º DESARROLLO DE APLICACIONES WEB"
+    }
+},
+{
+    "model": "horarios.profesor",
+    "pk": "ALR",
+    "fields": {
+        "usuario": 2,
+        "nombre": "Amparo",
+        "email": "amparolr@gmail.es",
+        "hash": "12345",
+        "hash2": "12345"
+    }
+},
+{
+    "model": "horarios.profesor",
+    "pk": "APF",
+    "fields": {
+        "usuario": 3,
+        "nombre": "Ana Pérez Fernández",
+        "email": "anapf@hotmail.com",
+        "hash": "12345",
+        "hash2": "12345"
+    }
+},
+{
+    "model": "horarios.profesor",
+    "pk": "CGV",
+    "fields": {
+        "usuario": 5,
+        "nombre": "Carlos García Villarán",
+        "email": "carlosgv@gmail.es",
+        "hash": "12345",
+        "hash2": "12345"
+    }
+},
+{
+    "model": "horarios.profesor",
+    "pk": "JBA",
+    "fields": {
+        "usuario": 7,
+        "nombre": "Jorge Agustín Barón Abad",
+        "email": "jorgeba@hotmail.com",
+        "hash": "12345",
+        "hash2": "12345"
+    }
+},
+{
+    "model": "horarios.profesor",
+    "pk": "JMN",
+    "fields": {
+        "usuario": 6,
+        "nombre": "Joaquín Montero Navarro",
+        "email": "joquinmn@gmail.es",
+        "hash": "12345",
+        "hash2": "12345"
+    }
+},
+{
+    "model": "horarios.profesor",
+    "pk": "JMV",
+    "fields": {
+        "usuario": 4,
+        "nombre": "José Manuel Vilches Navarrete",
+        "email": "jvilches@hotmail.com",
+        "hash": "12345",
+        "hash2": "12345"
+    }
+},
+{
+    "model": "horarios.horario",
+    "pk": "1001",
+    "fields": {
+        "profesor_cod": "JMN",
+        "dia": "L",
+        "asignatura_cod": "DAW",
+        "aula_cod": "116",
+        "grupo_cod": "2DAW",
+        "periodo_cod": 1
+    }
+},
+{
+    "model": "horarios.horario",
+    "pk": "1002",
+    "fields": {
+        "profesor_cod": "CGV",
+        "dia": "M",
+        "asignatura_cod": "DIW",
+        "aula_cod": "116",
+        "grupo_cod": "2DAW",
+        "periodo_cod": 2
+    }
+},
+{
+    "model": "horarios.horario",
+    "pk": "1004",
+    "fields": {
+        "profesor_cod": "JBA",
+        "dia": "V",
+        "asignatura_cod": "DES",
+        "aula_cod": "116",
+        "grupo_cod": "2DAW",
+        "periodo_cod": 5
+    }
+},
+{
+    "model": "oauth2_provider.application",
+    "pk": 1,
+    "fields": {
+        "client_id": "gabriela",
+        "user": 1,
+        "redirect_uris": "",
+        "post_logout_redirect_uris": "",
+        "client_type": "confidential",
+        "authorization_grant_type": "password",
+        "client_secret": "pbkdf2_sha256$600000$05etUgXPE8y9yFa1yGypOj$T2cF9zHfyScqrxfGoT0ePbYX4+fprFuf7/bQKXvigG8=",
+        "name": "Horarios",
+        "skip_authorization": false,
+        "created": "2024-05-13T17:32:27.472Z",
+        "updated": "2024-05-13T17:32:27.472Z",
+        "algorithm": ""
+    }
+},
+{
+    "model": "oauth2_provider.accesstoken",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "source_refresh_token": null,
+        "token": "jyRllamVo0HyiV8uO0HgisNvjmJJUh",
+        "id_token": null,
+        "application": 1,
+        "expires": "2024-05-14T03:54:15.238Z",
+        "scope": "read write groups",
+        "created": "2024-05-13T17:54:15.239Z",
+        "updated": "2024-05-13T17:54:15.239Z"
+    }
+},
+{
+    "model": "oauth2_provider.refreshtoken",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "token": "8Phmqr4jDZkh9hrwEeJQzn5oEWUzkE",
+        "application": 1,
+        "access_token": 1,
+        "created": "2024-05-13T17:54:15.240Z",
+        "updated": "2024-05-13T17:54:15.240Z",
+        "revoked": null
+    }
+}
+]
