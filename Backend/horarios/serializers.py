@@ -85,17 +85,17 @@ class AsignaturaSerializerCreate(serializers.ModelSerializer):
         return descripcion
     
     
-    def create(self, validated_data):
-        asignatura = Asignatura.objects.create(
-            asignatura_cod = validated_data['asignatura_cod'],
-            descripcion = validated_data['descripcion']
-        )
-        return asignatura
+    # def create(self, validated_data):
+    #     asignatura = Asignatura.objects.create(
+    #         asignatura_cod = validated_data['asignatura_cod'],
+    #         descripcion = validated_data['descripcion']
+    #     )
+    #     return asignatura
     
     
-    def update(self, instance, validated_data):
-        instance.asignatura_cod = validated_data['asignatura_cod']
-        instance.descripcion = validated_data['descripcion']
-        return instance
+    # def update(self, instance, validated_data):
+    #     instance.asignatura_cod = validated_data['asignatura_cod']
+    #     instance.descripcion = validated_data['descripcion']
+    #     return instance
     
     

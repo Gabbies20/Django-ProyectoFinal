@@ -31,14 +31,6 @@ def aulas_list(request):
 
 
 @api_view(['GET'])
-def asignaturas_list(request):
-    asignaturas = Asignatura.objects.all()
-    serializer= AsignaturaSerializer(asignaturas, many=True)
-    return Response(serializer.data)
-
-
-
-@api_view(['GET'])
 def horarios_list(request):
     horarios = Horario.objects.all()
     serializer = HorarioSerializer(horarios,many=True)
@@ -59,12 +51,25 @@ def franjas_list(request):
     serializer = FranjaSerializer(franjas,many=True)
     return Response(serializer.data)
 
+
 def xml_data_view(request):
     xml_file_path = os.path.join(settings.BASE_DIR, 'datos.xml')
+    
     return FileResponse(open(xml_file_path, 'rb'))
- 
- 
-#ASIGNATURAS:
+
+#CRUD PARA ASIGNATURAS:
+@api_view(['GET'])
+def asignaturas_list(request):
+    asignaturas = Asignatura.objects.all()
+    serializer= AsignaturaSerializer(asignaturas, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def asignaturas_obtener(request,asignatura_cod):
+    asignatura = Asignatura.objects.get(asignatura_cod=asignatura_cod)
+    serializer= AsignaturaSerializer(asignatura)
+    return Response(serializer.data)
+
 @api_view(['POST'])
 def crear_asignatura(request):
     serializers = AsignaturaSerializerCreate(data=request.data)
@@ -79,9 +84,9 @@ def crear_asignatura(request):
  
 
 @api_view(['PUT'])
-def editar_asignatura(request, id):
-    asignatura = Asignatura.objects.get(asignatura_cod=id)
-    print(asignatura)
+def editar_asignatura(request, asignatura_cod):
+    asignatura = Asignatura.objects.get(asignatura_cod=asignatura_cod)
+    #data["asignatura_cod"] = asignatura_cod
     asignaturaCreateSerializer = AsignaturaSerializerCreate(data=request.data, instance=asignatura)
     if asignaturaCreateSerializer.is_valid():
         try:
