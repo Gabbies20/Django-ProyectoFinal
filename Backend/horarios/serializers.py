@@ -128,6 +128,14 @@ class AulaSerializerCreate(serializers.ModelSerializer):
     #          descripcion = validated_data['descripcion']
     #      )
     #     return aula
+    
+    
+    #  def validate(self, attrs):
+    #     # Validación adicional que involucra múltiples campos
+    #     aula_cod = attrs.get('aula_cod')
+    #     descripcion = attrs.get('descripcion')
+    
     def create(self, validated_data):
+        #El metodo validate** -> validación general del objeto.
         aula = Aula.objects.create(**validated_data)
         return aula

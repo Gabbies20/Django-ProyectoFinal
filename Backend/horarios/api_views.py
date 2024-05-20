@@ -69,23 +69,43 @@ def crear_asignatura(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['PUT'])
-def editar_asignatura(request, asignatura_cod):
-    asignatura = Asignatura.objects.get(asignatura_cod=asignatura_cod)
-    #data["asignatura_cod"] = asignatura_cod
-    asignaturaCreateSerializer = AsignaturaSerializerCreate(data=request.data, instance=asignatura)
-    if asignaturaCreateSerializer.is_valid():
-        try:
-            asignaturaCreateSerializer.save()
-            return Response("Asignatura EDITADA")
-        except serializers.ValidationError as error:
-            return Response(error.detail, status=status.HTTP_400_BAD_REQUEST)
-        except Exception as error:
-            return Response(repr(error), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    else:
-        return Response(asignaturaCreateSerializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# @api_view(['PUT'])
+# def editar_asignatura(request, asignatura_cod):
+#     asignatura = Asignatura.objects.get(asignatura_cod=asignatura_cod)
+#     #data["asignatura_cod"] = asignatura_cod
+#     asignaturaCreateSerializer = AsignaturaSerializerCreate(data=request.data, instance=asignatura)
+#     if asignaturaCreateSerializer.is_valid():
+#         try:
+#             asignaturaCreateSerializer.save()
+#             return Response("Asignatura EDITADA")
+#         except serializers.ValidationError as error:
+#             return Response(error.detail, status=status.HTTP_400_BAD_REQUEST)
+#         except Exception as error:
+#             return Response(repr(error), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+#     else:
+#         return Response(asignaturaCreateSerializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-
+@api_view(['GET', 'PUT'])
+def editar_asignatura(request, id):
+    try:
+        asignatura = Asignatura.objects.get(asignatura_cod=id)
+    except Asignatura.DoesNotExist:
+        return Response({"error": "Asignatura no encontrada."}, status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == 'GET':
+        serializer = AsignaturaSerializerCreate(asignatura)
+        return Response(serializer.data)
+    
+    elif request.method == 'PUT':
+        serializer = AsignaturaSerializerCreate(asignatura, data=request.data)
+        if serializer.is_valid():
+            try:
+                serializer.save()
+                return Response("Asignatura actualizada.", status=status.HTTP_200_OK)
+            except Exception as error:
+                return Response({"error": str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['DELETE'])
 def eliminar_asignatura(request, id):
@@ -133,7 +153,22 @@ def crear_aula(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     
-    
+@api_view(['PUT'])
+def actualizar_aula(request, pk):
+    try:
+        aula = Aula.objects.get(pk=pk)
+    except Aula.DoesNotExist:
+        return Response({"error": "Aula no encontrada."}, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = AulaSerializerCreate(aula, data=request.data)
+    if serializer.is_valid():
+        try:
+            serializer.save()
+            return Response("Aula actualizada.", status=status.HTTP_200_OK)
+        except Exception as error:
+            return Response({"error": str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    else:
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)   
     
     
     
