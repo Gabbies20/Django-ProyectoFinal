@@ -12,24 +12,6 @@ from rest_framework import status
 #from .forms import *
 
 
-
-
-@api_view(['GET'])
-def profesores_list(request):
-   profesores = Profesor.objects.all()
-   serializer = ProfesorSerializer(profesores, many=True)
-   return Response(serializer.data)
-
-
-
-@api_view(['GET'])
-def aulas_list(request):
-   aulas = Aula.objects.all()
-   serializer= AulaSerializer(aulas, many=True)
-   return Response(serializer.data)
-
-
-
 @api_view(['GET'])
 def horarios_list(request):
     horarios = Horario.objects.all()
@@ -72,16 +54,20 @@ def asignaturas_obtener(request,asignatura_cod):
 
 @api_view(['POST'])
 def crear_asignatura(request):
-    serializers = AsignaturaSerializerCreate(data=request.data)
-    if serializers.is_valid():
+    print(request.data)
+    serializer = AsignaturaSerializerCreate(data=request.data)
+    if serializer.is_valid():
         try:
-            serializers.save()
-            return Response("Asignatura creada")
+            serializer.save()
+            return Response("ASIGNATURA CREADA", status=status.HTTP_200_OK)
+        except serializers.ValidationError as error:
+            return Response(error.detail, status=status.HTTP_400_BAD_REQUEST)
         except Exception as error:
-            return Response(error, status = status.HTTP_500_INTERNAL_SERVER_ERROR)
+            print(repr(error))
+            return Response(repr(error), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     else:
-        return Response(serializers.errors, status = status.HTTP_400_BAD_REQUEST)
- 
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['PUT'])
 def editar_asignatura(request, asignatura_cod):
@@ -112,17 +98,39 @@ def eliminar_asignatura(request, id):
     
     
     
+#CRUD PARA PROFESORES:
+@api_view(['GET'])
+def profesores_list(request):
+   profesores = Profesor.objects.all()
+   serializer = ProfesorSerializer(profesores, many=True)
+   return Response(serializer.data)
+    
+@api_view(['GET'])
+def profesores_obtener(request,id):
+    asignatura = Profesor.objects.get(profesor_cod=id)
+    serializer= ProfesorSerializer(asignatura)
+    return Response(serializer.data)
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+#CRUD AULA:
+@api_view(['GET'])
+def aulas_list(request):
+   aulas = Aula.objects.all()
+   serializer= AulaSerializer(aulas, many=True)
+   return Response(serializer.data)
+
+
+@api_view(['POST'])
+def crear_aula(request):
+    serializer = AulaSerializerCreate(data=request.data)
+    if serializer.is_valid():
+        try:
+            serializer.save()
+            return Response("Aula creada.")
+        except Exception as error:
+            return Response(error, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    else:
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     
     

@@ -19,7 +19,8 @@ class Asignatura(models.Model):
    asignatura_cod = models.CharField(max_length=50, primary_key=True)
    descripcion = models.CharField(max_length=100)
 
-
+   def __str__(self):
+       return self.asignatura_cod
   
 
 
@@ -29,7 +30,7 @@ class Aula(models.Model):
 
 
    def __str__(self):
-       return self.descripcion
+       return self.aula_cod
 
 
 class Franja(models.Model):
@@ -49,7 +50,7 @@ class Grupo(models.Model):
 
 
    def __str__(self):
-       return self.descripcion
+       return self.grupo_cod
 
 class Profesor(models.Model):
    usuario = models.OneToOneField(Usuario,
