@@ -131,7 +131,16 @@ def profesores_obtener(request,id):
     serializer= ProfesorSerializer(asignatura)
     return Response(serializer.data)
     
-    
+
+
+@api_view(['DELETE'])
+def eliminar_profesor(request, id):
+    profesor = Profesor.objects.get(profesor_cod=id)
+    try:
+        profesor.delete()
+        return Response('Profesor eliminado.')
+    except Exception as error:
+        return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)
 #CRUD AULA:
 @api_view(['GET'])
 def aulas_list(request):
@@ -172,9 +181,35 @@ def actualizar_aula(request, pk):
     
     
     
+@api_view(['DELETE'])
+def eliminar_aula(request, id):
+    aula = Aula.objects.get(aula_cod=id)
+    try:
+        aula.delete()
+        return Response('Aula eliminada')
+    except Exception as error:
+        return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)
     
-    
-    
+
+
+#CRUD GRUPOS:
+@api_view(['GET'])
+def grupos_list(request):
+    grupos = Grupo.objects.all()
+    serializer = GrupoSerializer(grupos, many=True)
+    return Response(serializer.data)
+
+
+
+
+@api_view(['DELETE'])
+def eliminar_grupo(request, id):
+    grupo = Grupo.objects.get(grupo_cod=id)
+    try:
+        grupo.delete()
+        return Response('Grupo eliminado-')
+    except Exception as error:
+        return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)
     
     
     
