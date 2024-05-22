@@ -212,15 +212,16 @@ def eliminar_grupo(request, id):
         return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+#CRUD FRANJAS:
+@api_view(['DELETE'])
+def eliminar_franja(request, id):
+    franja = Franja.objects.get(franja_cod=id)
+    try:
+        franja.delete()
+        return Response('Franja eliminado-')
+    except Exception as error:
+        return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)  
+
     
     
     
