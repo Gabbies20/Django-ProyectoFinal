@@ -225,8 +225,16 @@ def eliminar_franja(request, id):
     
     
     
-    
-    
+#CRUD PROFESORES:
+@api_view(['DELETE'])
+def eliminar_profesor(request, id):
+    profesor = Profesor.objects.get(franja_cod=id)
+    try:
+        profesor.delete()
+        return Response('Profesor eliminado-')
+    except Exception as error:
+        return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)  
+
     
     
     
