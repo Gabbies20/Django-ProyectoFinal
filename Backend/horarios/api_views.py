@@ -236,14 +236,14 @@ def eliminar_profesor(request, id):
         return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)  
     
  #CRUD AUSENCIA:
-@api_view(['DELETE'])
-def eliminar_ausencia(request, id):
-    ausencia = Ausencia.objects.get(franja_cod=id)
-    try:
-        ausencia.delete()
-        return Response('Ausencia eliminada')
-    except Exception as error:
-        return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)  
+# @api_view(['DELETE'])
+# def eliminar_ausencia(request, id):
+#     ausencia = Ausencia.objects.get(franja_cod=id)
+#     try:
+#         ausencia.delete()
+#         return Response('Ausencia eliminada')
+#     except Exception as error:
+#         return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)  
     
      
 
