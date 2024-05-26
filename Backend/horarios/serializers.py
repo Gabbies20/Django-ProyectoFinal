@@ -52,7 +52,10 @@ class ProfesorSerializer(serializers.ModelSerializer):
        model = Profesor
        fields = '__all__'
       
-
+class ProfesorSerializerMejorado(serializers.ModelSerializer):
+    usuario = UsuarioSerializer()
+    class Meta:
+        fields = ('usuario','profesor_cod','nombre','email','hash','hash1')
 
 class AusenciaSerializer(serializers.ModelSerializer):
    class Meta:

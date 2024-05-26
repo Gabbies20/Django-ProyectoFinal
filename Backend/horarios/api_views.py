@@ -118,12 +118,7 @@ def eliminar_asignatura(request, id):
     
     
     
-#CRUD PARA PROFESORES:
-@api_view(['GET'])
-def profesores_list(request):
-   profesores = Profesor.objects.all()
-   serializer = ProfesorSerializer(profesores, many=True)
-   return Response(serializer.data)
+
     
 @api_view(['GET'])
 def profesores_obtener(request,id):
@@ -221,11 +216,26 @@ def eliminar_franja(request, id):
         return Response('Franja eliminado-')
     except Exception as error:
         return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)  
-
-    
     
     
 #CRUD PROFESORES:
+@api_view(['GET'])
+def profesores_list(request):
+   profesores = Profesor.objects.all()
+   serializer = ProfesorSerializer(profesores, many=True)
+   return Response(serializer.data)
+
+
+@api_view(['GET'])
+def obtener_profesor(request,id):
+    profesor = Profesor.objects.select_related('usuario')
+    profesor = profesor.get(profesor_cod=id)
+    
+    
+
+@api_view(['POST'])
+
+
 @api_view(['DELETE'])
 def eliminar_profesor(request, id):
     profesor = Profesor.objects.get(franja_cod=id)
@@ -235,15 +245,15 @@ def eliminar_profesor(request, id):
     except Exception as error:
         return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)  
     
- #CRUD AUSENCIA:
-# @api_view(['DELETE'])
-# def eliminar_ausencia(request, id):
-#     ausencia = Ausencia.objects.get(franja_cod=id)
-#     try:
-#         ausencia.delete()
-#         return Response('Ausencia eliminada')
-#     except Exception as error:
-#         return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)  
+#CRUD AUSENCIA:
+@api_view(['DELETE'])
+def eliminar_ausencia(request, id):
+    ausencia = Ausencia.objects.get(franja_cod=id)
+    try:
+        ausencia.delete()
+        return Response('Ausencia eliminada')
+    except Exception as error:
+        return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)  
     
      
 
