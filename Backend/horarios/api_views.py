@@ -234,7 +234,8 @@ def obtener_profesor(request,id):
     
 
 @api_view(['POST'])
-
+def crear_profesor(request):
+    pass
 
 @api_view(['DELETE'])
 def eliminar_profesor(request, id):
