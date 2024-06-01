@@ -3,12 +3,13 @@ from .serializers import *
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.http import FileResponse, HttpResponse
-from .serializers import AsignaturaSerializer
+from .serializers import *
 import xml.etree.ElementTree as ET
 from django.conf import settings
 import os
 from rest_framework import status
-
+from rest_framework.parsers import FileUploadParser
+from rest_framework.views import APIView
 #from .forms import *
 
 
@@ -40,12 +41,44 @@ def xml_data_view(request):
     return FileResponse(open(xml_file_path, 'rb'))
 
 #CRUD PARA ASIGNATURAS:
+# @api_view(['GET'])
+# def asignaturas_list(request):
+#     asignaturas = Asignatura.objects.all()
+#     serializer= AsignaturaSerializer(asignaturas, many=True)
+#     return Response(serializer.data)
 @api_view(['GET'])
 def asignaturas_list(request):
-    asignaturas = Asignatura.objects.all()
-    serializer= AsignaturaSerializer(asignaturas, many=True)
-    return Response(serializer.data)
+    try:
+        # Parsear el archivo XML
+        tree = ET.parse(settings.XML_FILE_PATH)
+        root = tree.getroot()
 
+        # Obtener los datos de la tabla de asignaturas del archivo XML
+        asignaturas_data = []
+        for table in root.findall(".//table[@name='asignaturas']"):
+            asignatura_data = {}
+            for column in table.findall('column'):
+                asignatura_data[column.get('name')] = column.text
+            asignaturas_data.append(asignatura_data)
+
+        # Guardar las asignaturas en la base de datos
+        for asignatura_data in asignaturas_data:
+            # Intentar obtener la asignatura existente por su código
+            asignatura, created = Asignatura.objects.update_or_create(
+                asignatura_cod=asignatura_data.get('asignatura_cod'),
+                defaults={'descripcion': asignatura_data.get('descripcion')}
+            )
+        
+        # Serializar las asignaturas para devolverlas como respuesta
+        serializer = AsignaturaSerializer(Asignatura.objects.all(), many=True)
+
+        # Devolver los datos serializados
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    except FileNotFoundError:
+        return Response("El archivo XML no se encontró.", status=status.HTTP_404_NOT_FOUND)
+    except Exception as e:
+        return Response(str(e), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+     
 @api_view(['GET'])
 def asignaturas_obtener(request,asignatura_cod):
     asignatura = Asignatura.objects.get(asignatura_cod=asignatura_cod)
@@ -258,9 +291,19 @@ def eliminar_ausencia(request, id):
     
      
 
+class ArchivoUploadView(APIView):
+    parser_class = (FileUploadParser,)
+
+    def post(self, request, *args, **kwargs):
+        archivo_serializer = ArchivoSerializer(data=request.data)
+
+        if archivo_serializer.is_valid():
+            archivo_serializer.save()
+            return Response(archivo_serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(archivo_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    
-    
+
     
     
     

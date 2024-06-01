@@ -19,5 +19,7 @@ urlpatterns = [
     path('profesores/', profesores_list, name='profesores_list'),
     path('profesor/<str:id>',profesores_obtener),
     #URL AULA:
-    path('aulas/crear',crear_aula)
+    path('aulas/crear',crear_aula),
+    #url para subir archivo
+    path('upload/', ArchivoUploadView.as_view(), name='archivo-upload'),
 ]

@@ -156,5 +156,13 @@ REST_FRAMEWORK = {
     ),
 }
 
+import environ
+
+# Inicializar environ
+env = environ.Env()
+environ.Env.read_env()  # Leer archivo .env
+
+# Leer la variable de entorno
+XML_FILE_PATH = env('XML_FILE_PATH', default='/home/gabriela/Desktop/Django-Proyecto/Django-ProyectoFinal/archivos/xml/horarioCompleto.xml')
 
 #LOGIN_URL = '/admin/login/'

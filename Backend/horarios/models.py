@@ -91,3 +91,10 @@ class Ausencia(models.Model):
    def __str__(self):
        return f"Ausencia de {self.profesor_cod.nombre} en {self.asignatura_cod.descripcion} el {self.fecha}"
 
+class Archivo(models.Model):
+    nombre = models.CharField(max_length=100)
+    archivo = models.FileField(upload_to='archivos/xml/')
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.nombre

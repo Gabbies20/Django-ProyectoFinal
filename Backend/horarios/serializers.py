@@ -142,3 +142,8 @@ class AulaSerializerCreate(serializers.ModelSerializer):
         #El metodo validate** -> validación general del objeto.
         aula = Aula.objects.create(**validated_data)
         return aula
+    
+class ArchivoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Archivo
+        fields = '__all__'
