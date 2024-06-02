@@ -20,6 +20,10 @@ urlpatterns = [
     path('profesor/<str:id>',profesores_obtener),
     #URL AULA:
     path('aulas/crear',crear_aula),
+    #url para grupos:
+    path('grupos/', grupos_list, name='_list'),
     #url para subir archivo
     path('upload/', ArchivoUploadView.as_view(), name='archivo-upload'),
+    #horarios url:
+    path('horarios/',horarios_list,name='horarios_list')
 ]
