@@ -10,6 +10,10 @@ import os
 from rest_framework import status
 from rest_framework.parsers import FileUploadParser
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view, parser_classes
+from rest_framework.parsers import MultiPartParser, FormParser
+
+from django.contrib.auth.models import User
 #from .forms import *
 
 
@@ -415,49 +419,226 @@ def horarios_list(request):
 
 
 
-from rest_framework.decorators import api_view, parser_classes
-from rest_framework.parsers import MultiPartParser, FormParser
 
 
 
 
 
+
+# @api_view(['POST'])
+# @parser_classes([MultiPartParser, FormParser])
+# def cargar_xml(request):
+#     try:
+#         # Verificar si se ha enviado un archivo
+#         if 'file' not in request.FILES:
+#             return Response("No se ha enviado ningún archivo.", status=status.HTTP_400_BAD_REQUEST)
+
+#         # Leer el archivo XML
+#         xml_file = request.FILES['file']
+#         tree = ET.parse(settings.XML_FILE_PATH)
+#         root = tree.getroot()
+
+#         # Procesar datos de profesores
+#         for table in root.findall(".//table[@name='profesores']"):
+#             for row in table.findall('row'):
+#                 profesor_data = {column.get('name'): column.text for column in row.findall('column')}
+#                 Profesor.objects.update_or_create(
+#                     profesor_cod=profesor_data.get('profesor_cod'),
+#                     defaults={'nombre': profesor_data.get('nombre')}
+#                 )
+
+#         # Procesar datos de asignaturas
+#         for table in root.findall(".//table[@name='asignaturas']"):
+#             for row in table.findall('row'):
+#                 asignatura_data = {column.get('name'): column.text for column in row.findall('column')}
+#                 Asignatura.objects.update_or_create(
+#                     asignatura_cod=asignatura_data.get('asignatura_cod'),
+#                     defaults={'descripcion': asignatura_data.get('descripcion')}
+#                 )
+
+#         # Procesar datos de aulas
+#         for table in root.findall(".//table[@name='aulas']"):
+#             for row in table.findall('row'):
+#                 aula_data = {column.get('name'): column.text for column in row.findall('column')}
+#                 Aula.objects.update_or_create(
+#                     aula_cod=aula_data.get('aula_cod'),
+#                     defaults={'descripcion': aula_data.get('descripcion')}
+#                 )
+
+#         # Procesar datos de franjas
+#         for table in root.findall(".//table[@name='franjas']"):
+#             for row in table.findall('row'):
+#                 franja_data = {column.get('name'): column.text for column in row.findall('column')}
+#                 Franja.objects.update_or_create(
+#                     franja_cod=franja_data.get('franja_cod'),
+#                     defaults={
+#                         'descripcion': franja_data.get('descripcion'),
+#                         'horadesde': franja_data.get('horadesde'),
+#                         'horahasta': franja_data.get('horahasta')
+#                     }
+#                 )
+
+#         # Procesar datos de grupos
+#         for table in root.findall(".//table[@name='grupos']"):
+#             for row in table.findall('row'):
+#                 grupo_data = {column.get('name'): column.text for column in row.findall('column')}
+#                 Grupo.objects.update_or_create(
+#                     grupo_cod=grupo_data.get('grupo_cod'),
+#                     defaults={'descripcion': grupo_data.get('descripcion')}
+#                 )
+
+#         # Procesar datos de horarios
+#         for table in root.findall(".//table[@name='horarios']"):
+#             for row in table.findall('row'):
+#                 horario_data = {column.get('name'): column.text for column in row.findall('column')}
+#                 try:
+#                     profesor = Profesor.objects.get(profesor_cod=horario_data.get('profesor_cod'))
+#                     asignatura = Asignatura.objects.get(asignatura_cod=horario_data.get('asignatura_cod'))
+#                     aula = Aula.objects.get(aula_cod=horario_data.get('aula_cod'))
+#                     grupo = Grupo.objects.get(grupo_cod=horario_data.get('grupo_cod'))
+
+#                     Horario.objects.update_or_create(
+#                         horario_cod=horario_data.get('horario_cod'),
+#                         defaults={
+#                             'profesor_cod': profesor,
+#                             'dia': horario_data.get('dia'),
+#                             'asignatura_cod': asignatura,
+#                             'aula_cod': aula,
+#                             'grupo_cod': grupo,
+#                             'periodo_cod': horario_data.get('periodo_cod')
+#                         }
+#                     )
+#                 except (Profesor.DoesNotExist, Asignatura.DoesNotExist, Aula.DoesNotExist, Grupo.DoesNotExist) as e:
+#                     print(f"Error: {e}. El horario con código {horario_data.get('horario_cod')} no se puede crear o actualizar.")
+#                     continue
+
+#         # Procesar datos de ausencias
+#         for table in root.findall(".//table[@name='ausencias']"):
+#             for row in table.findall('row'):
+#                 ausencia_data = {column.get('name'): column.text for column in row.findall('column')}
+#                 try:
+#                     profesor = Profesor.objects.get(profesor_cod=ausencia_data.get('profesor_cod'))
+#                     asignatura = Asignatura.objects.get(asignatura_cod=ausencia_data.get('asignatura_cod'))
+#                     horario = Horario.objects.get(horario_cod=ausencia_data.get('horario_cod'))
+
+#                     Ausencia.objects.update_or_create(
+#                         profesor_cod=profesor,
+#                         asignatura_cod=asignatura,
+#                         horario_cod=horario,
+#                         defaults={
+#                             'fecha': ausencia_data.get('fecha') or timezone.now(),
+#                             'motivo': ausencia_data.get('motivo')
+#                         }
+#                     )
+#                 except (Profesor.DoesNotExist, Asignatura.DoesNotExist, Horario.DoesNotExist) as e:
+#                     print(f"Error: {e}. La ausencia no se puede crear o actualizar.")
+#                     continue
+
+#         return Response("Datos cargados exitosamente.", status=status.HTTP_200_OK)
+#     except Exception as e:
+#         logger.error(f"Error al cargar los datos: {str(e)}")
+#         return Response(f"Error al cargar los datos: {str(e)}", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+
+
+
+
+
+
+
+
+
+
+# #CARGAR ARCHIVO:
+# class ArchivoUploadView(APIView):
+#     parser_class = (FileUploadParser,)
+
+#     def post(self, request, *args, **kwargs):
+#         archivo_serializer = ArchivoSerializer(data=request.data)
+
+#         if archivo_serializer.is_valid():
+#             archivo_serializer.save()
+#             cargar_xml()
+#             return Response(archivo_serializer.data, status=status.HTTP_201_CREATED)
+#         else:
+#             return Response(archivo_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class ArchivoUploadView(APIView):
+    parser_classes = (MultiPartParser, FormParser)
+
+    def post(self, request, *args, **kwargs):
+        if 'archivo' not in request.FILES:
+            return Response("No se ha enviado ningún archivo.", status=status.HTTP_400_BAD_REQUEST)
+
+        archivo_serializer = ArchivoSerializer(data=request.data)
+        if archivo_serializer.is_valid():
+            try:
+                archivo_instance = archivo_serializer.save()
+                
+                # Debugging: Print the instance to verify __str__ method
+                print(f"Archivo instance: {archivo_instance}")
+                
+                archivo_instance.archivo = request.FILES['archivo']
+                archivo_instance.save()
+                
+                file_path = archivo_instance.archivo.path
+                print(file_path)
+                # Debugging: Check file path
+                print(f"Archivo guardado en: {file_path}")
+
+                response = cargar_xml(self.request._request, archivo_instance.archivo.path)
+
+
+                return response
+
+            except Exception as e:
+                # Capture and print the exception to understand what is going wrong
+                print(f"Error al guardar el archivo: {e}")
+                return Response(f"Error al guardar el archivo: {e}", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        else:
+            print(archivo_serializer.errors)
+            return Response(archivo_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 @parser_classes([MultiPartParser, FormParser])
-def cargar_xml(request):
+def cargar_xml(request, file_path):
     try:
-        # Verificar si se ha enviado un archivo
-        if 'file' not in request.FILES:
-            return Response("No se ha enviado ningún archivo.", status=status.HTTP_400_BAD_REQUEST)
-
         # Leer el archivo XML
-        xml_file = request.FILES['file']
-        tree = ET.parse(settings.XML_FILE_PATH)
+        tree = ET.parse(file_path)
         root = tree.getroot()
 
-        # Procesar datos de profesores
-        for table in root.findall(".//table[@name='profesores']"):
-            for row in table.findall('row'):
-                profesor_data = {column.get('name'): column.text for column in row.findall('column')}
-                Profesor.objects.update_or_create(
-                    profesor_cod=profesor_data.get('profesor_cod'),
-                    defaults={'nombre': profesor_data.get('nombre')}
-                )
+        # Debugging: Print root element
+        print(f"Root element: {root.tag}")
 
         # Procesar datos de asignaturas
         for table in root.findall(".//table[@name='asignaturas']"):
-            for row in table.findall('row'):
-                asignatura_data = {column.get('name'): column.text for column in row.findall('column')}
-                Asignatura.objects.update_or_create(
-                    asignatura_cod=asignatura_data.get('asignatura_cod'),
-                    defaults={'descripcion': asignatura_data.get('descripcion')}
-                )
+            print("Encontrada tabla de asignaturas")
+            asignatura_data = {}
+            for column in table.findall('column'):
+                asignatura_data[column.get('name')] = column.text
+
+            asignatura_cod = asignatura_data.get('asignatura_cod')
+            descripcion = asignatura_data.get('descripcion')
+
+            # Imprimir información sobre la asignatura que se está procesando
+            print(f"Procesando asignatura: asignatura_cod={asignatura_cod}, descripcion={descripcion}")
+
+            # Crear o actualizar el objeto Asignatura
+            asignatura, created = Asignatura.objects.update_or_create(
+                asignatura_cod=asignatura_cod,
+                defaults={'descripcion': descripcion}
+            )
+            if created:
+                print(f"Asignatura creada: {asignatura}")
+            else:
+                print(f"Asignatura actualizada: {asignatura}")
 
         # Procesar datos de aulas
         for table in root.findall(".//table[@name='aulas']"):
-            for row in table.findall('row'):
-                aula_data = {column.get('name'): column.text for column in row.findall('column')}
+            for column in table.findall('column'):
+                aula_data = {column.get('name'): column.text for column in table.findall('column')}
                 Aula.objects.update_or_create(
                     aula_cod=aula_data.get('aula_cod'),
                     defaults={'descripcion': aula_data.get('descripcion')}
@@ -465,8 +646,8 @@ def cargar_xml(request):
 
         # Procesar datos de franjas
         for table in root.findall(".//table[@name='franjas']"):
-            for row in table.findall('row'):
-                franja_data = {column.get('name'): column.text for column in row.findall('column')}
+            for column in table.findall('column'):
+                franja_data = {column.get('name'): column.text for column in table.findall('column')}
                 Franja.objects.update_or_create(
                     franja_cod=franja_data.get('franja_cod'),
                     defaults={
@@ -478,17 +659,82 @@ def cargar_xml(request):
 
         # Procesar datos de grupos
         for table in root.findall(".//table[@name='grupos']"):
-            for row in table.findall('row'):
-                grupo_data = {column.get('name'): column.text for column in row.findall('column')}
+            for column in table.findall('column'):
+                grupo_data = {column.get('name'): column.text for column in table.findall('column')}
                 Grupo.objects.update_or_create(
                     grupo_cod=grupo_data.get('grupo_cod'),
                     defaults={'descripcion': grupo_data.get('descripcion')}
                 )
+         # Procesar datos de aulas
+        for table in root.findall(".//table[@name='aulas']"):
+            print("Encontrada tabla de aulas")
+            aula_data = {}
+            for column in table.findall('column'):
+                aula_data[column.get('name')] = column.text
 
+            aula_cod = aula_data.get('aula_cod')
+            descripcion = aula_data.get('descripcion')
+
+            # Crear o actualizar el objeto Aula
+            Aula.objects.update_or_create(
+                aula_cod=aula_cod,
+                defaults={'descripcion': descripcion}
+            )
+        
+
+        # Procesar datos de profesores
+        for table in root.findall(".//table[@name='profesores']"):
+            print("Encontrada tabla de profesores")
+            profesor_data = {}
+            for column in table.findall('column'):
+                profesor_data[column.get('name')] = column.text
+
+            profesor_cod = profesor_data.get('profesor_cod')
+            nombre = profesor_data.get('nombre')
+
+            # Verificar si profesor_cod es None o vacío
+            if not profesor_cod:
+                print(f"Error: El campo 'profesor_cod' está vacío o no existe.")
+                continue
+
+            # Asignar valores predeterminados para los campos que no están en el XML
+            email = f"{profesor_cod}@example.com"  # Email predeterminado
+            hash_value = 'default_hash'  # Valor predeterminado para hash
+            hash2_value = 'default_hash2'  # Valor predeterminado para hash2
+
+            # Crear el usuario asociado si no existe
+            usuario, created = Usuario.objects.get_or_create(username=profesor_cod, defaults={
+                'password': Usuario.objects.make_random_password(),
+                'rol': Usuario.PROFESOR
+            })
+
+            if created:
+                print(f"Usuario creado: {usuario}")
+            else:
+                print(f"Usuario actualizado: {usuario}")
+
+            # Crear o actualizar el objeto Profesor
+            profesor, created = Profesor.objects.update_or_create(
+                profesor_cod=profesor_cod,
+                defaults={
+                    'nombre': nombre,
+                    'email': email,
+                    'hash': hash_value,
+                    'hash2': hash2_value,
+                    'usuario': usuario
+                }
+            )
+            if created:
+                print(f"Profesor creado: {profesor}")
+            else:
+                print(f"Profesor actualizado: {profesor}")
+
+
+        
         # Procesar datos de horarios
         for table in root.findall(".//table[@name='horarios']"):
-            for row in table.findall('row'):
-                horario_data = {column.get('name'): column.text for column in row.findall('column')}
+            for column in table.findall('column'):
+                horario_data = {column.get('name'): column.text for column in table.findall('column')}
                 try:
                     profesor = Profesor.objects.get(profesor_cod=horario_data.get('profesor_cod'))
                     asignatura = Asignatura.objects.get(asignatura_cod=horario_data.get('asignatura_cod'))
@@ -509,11 +755,12 @@ def cargar_xml(request):
                 except (Profesor.DoesNotExist, Asignatura.DoesNotExist, Aula.DoesNotExist, Grupo.DoesNotExist) as e:
                     print(f"Error: {e}. El horario con código {horario_data.get('horario_cod')} no se puede crear o actualizar.")
                     continue
-
+                
+                
         # Procesar datos de ausencias
         for table in root.findall(".//table[@name='ausencias']"):
-            for row in table.findall('row'):
-                ausencia_data = {column.get('name'): column.text for column in row.findall('column')}
+            for column in table.findall('column'):
+                ausencia_data = {column.get('name'): column.text for column in table.findall('column')}
                 try:
                     profesor = Profesor.objects.get(profesor_cod=ausencia_data.get('profesor_cod'))
                     asignatura = Asignatura.objects.get(asignatura_cod=ausencia_data.get('asignatura_cod'))
@@ -534,46 +781,9 @@ def cargar_xml(request):
 
         return Response("Datos cargados exitosamente.", status=status.HTTP_200_OK)
     except Exception as e:
-        logger.error(f"Error al cargar los datos: {str(e)}")
+        print(f"Error al cargar los datos: {str(e)}")
         return Response(f"Error al cargar los datos: {str(e)}", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-
-
-
-
-
-
-
-
-
-
-
-#CARGAR ARCHIVO:
-class ArchivoUploadView(APIView):
-    parser_class = (FileUploadParser,)
-
-    def post(self, request, *args, **kwargs):
-        archivo_serializer = ArchivoSerializer(data=request.data)
-
-        if archivo_serializer.is_valid():
-            archivo_serializer.save()
-            cargar_xml()
-            return Response(archivo_serializer.data, status=status.HTTP_201_CREATED)
-        else:
-            return Response(archivo_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
