@@ -57,9 +57,7 @@ class Profesor(models.Model):
                             on_delete = models.CASCADE)
    profesor_cod = models.CharField(max_length=50,primary_key=True)
    nombre = models.CharField(max_length=100)
-   email = models.EmailField(max_length=50)
-   hash = models.CharField(max_length=8)
-   hash2 = models.CharField(max_length=8)
+   email = models.EmailField(max_length=50,blank=True)
 
 
    def __str__(self):
@@ -85,7 +83,7 @@ class Ausencia(models.Model):
    asignatura_cod = models.ForeignKey(Asignatura, on_delete=models.CASCADE)
    horario_cod = models.ForeignKey(Horario, on_delete=models.CASCADE)
    fecha = models.DateTimeField(default=timezone.now,blank=True)
-   motivo = models.TextField()
+   motivo = models.TextField(default=True)
 
 
    def __str__(self):

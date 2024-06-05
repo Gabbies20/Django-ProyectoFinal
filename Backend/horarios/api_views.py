@@ -656,7 +656,7 @@ def cargar_xml(request, file_path):
                         'horahasta': franja_data.get('horahasta')
                     }
                 )
-
+            
         # Procesar datos de grupos
         for table in root.findall(".//table[@name='grupos']"):
             for column in table.findall('column'):
@@ -689,7 +689,7 @@ def cargar_xml(request, file_path):
             for column in table.findall('column'):
                 profesor_data[column.get('name')] = column.text
 
-            profesor_cod = profesor_data.get('profesor_cod')
+            profesor_cod = profesor_data.get('professor_cod')
             nombre = profesor_data.get('nombre')
 
             # Verificar si profesor_cod es None o vacío
@@ -698,9 +698,7 @@ def cargar_xml(request, file_path):
                 continue
 
             # Asignar valores predeterminados para los campos que no están en el XML
-            email = f"{profesor_cod}@example.com"  # Email predeterminado
-            hash_value = 'default_hash'  # Valor predeterminado para hash
-            hash2_value = 'default_hash2'  # Valor predeterminado para hash2
+            email = f"{profesor_cod.lower()}@example.com"  # Email predeterminado
 
             # Crear el usuario asociado si no existe
             usuario, created = Usuario.objects.get_or_create(username=profesor_cod, defaults={
@@ -719,8 +717,6 @@ def cargar_xml(request, file_path):
                 defaults={
                     'nombre': nombre,
                     'email': email,
-                    'hash': hash_value,
-                    'hash2': hash2_value,
                     'usuario': usuario
                 }
             )
@@ -736,7 +732,7 @@ def cargar_xml(request, file_path):
             for column in table.findall('column'):
                 horario_data = {column.get('name'): column.text for column in table.findall('column')}
                 try:
-                    profesor = Profesor.objects.get(profesor_cod=horario_data.get('profesor_cod'))
+                    profesor = Profesor.objects.get(profesor_cod=horario_data.get('professor_cod'))
                     asignatura = Asignatura.objects.get(asignatura_cod=horario_data.get('asignatura_cod'))
                     aula = Aula.objects.get(aula_cod=horario_data.get('aula_cod'))
                     grupo = Grupo.objects.get(grupo_cod=horario_data.get('grupo_cod'))
@@ -755,14 +751,14 @@ def cargar_xml(request, file_path):
                 except (Profesor.DoesNotExist, Asignatura.DoesNotExist, Aula.DoesNotExist, Grupo.DoesNotExist) as e:
                     print(f"Error: {e}. El horario con código {horario_data.get('horario_cod')} no se puede crear o actualizar.")
                     continue
-                
+        
                 
         # Procesar datos de ausencias
         for table in root.findall(".//table[@name='ausencias']"):
             for column in table.findall('column'):
                 ausencia_data = {column.get('name'): column.text for column in table.findall('column')}
                 try:
-                    profesor = Profesor.objects.get(profesor_cod=ausencia_data.get('profesor_cod'))
+                    profesor = Profesor.objects.get(profesor_cod=ausencia_data.get('professor_cod'))
                     asignatura = Asignatura.objects.get(asignatura_cod=ausencia_data.get('asignatura_cod'))
                     horario = Horario.objects.get(horario_cod=ausencia_data.get('horario_cod'))
 
@@ -786,15 +782,7 @@ def cargar_xml(request, file_path):
 
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+@api_view(['POST'])
     
     
     

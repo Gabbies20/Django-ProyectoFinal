@@ -46,7 +46,8 @@ class HorarioSerializer(serializers.ModelSerializer):
        model = Horario
        fields = '__all__'
       
-      
+class HorariosSerializerMejorado(serializers.ModelSerializer):
+    
 class ProfesorSerializer(serializers.ModelSerializer):
    class Meta:
        model = Profesor
