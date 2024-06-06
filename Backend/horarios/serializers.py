@@ -41,12 +41,7 @@ class GrupoSerializer(serializers.ModelSerializer):
        model = Grupo
        fields = '__all__'
       
-class HorarioSerializer(serializers.ModelSerializer):
-   class Meta:
-       model = Horario
-       fields = '__all__'
-      
-class HorariosSerializerMejorado(serializers.ModelSerializer):
+
     
 class ProfesorSerializer(serializers.ModelSerializer):
    class Meta:
@@ -58,6 +53,61 @@ class ProfesorSerializerMejorado(serializers.ModelSerializer):
     class Meta:
         fields = ('usuario','profesor_cod','nombre','email','hash','hash1')
 
+
+
+class HorarioSerializer(serializers.ModelSerializer):
+   class Meta:
+       model = Horario
+       fields = '__all__'
+      
+class HorarioSerializerCreate(serializers.ModelSerializer):
+    class Meta:
+        model = Horario
+        fields = ('horario_cod', 'profesor_cod', 'dia', 'asignatura_cod', 'aula_cod', 'grupo_cod', 'periodo_cod')
+
+    def validate_horario_cod(self, horario_cod):
+        horarioCod = Horario.objects.filter(horario_cod=horario_cod).first()
+        if horarioCod is not None:
+            raise serializers.ValidationError('Ya existe un horario con ese código.')
+        return horario_cod
+
+    def validate_profesor_cod(self, profesor_cod):
+        if not profesor_cod:
+            raise serializers.ValidationError('Debe asignar un profesor.')
+        return profesor_cod
+
+    def validate_dia(self, dia):
+        if dia not in dict(Horario.DIAS).keys():
+            raise serializers.ValidationError('Día no válido. Debe ser una de las siguientes letras: L, M, X, J, V, S, D.')
+        return dia
+
+    def validate_asignatura_cod(self, asignatura_cod):
+        if not asignatura_cod:
+            raise serializers.ValidationError('Debe asignar una asignatura.')
+        #if asignatura_cod.horario_set.count() >= 3:
+         #   raise serializers.ValidationError('Una asignatura no puede tener más de 3 horarios.')
+        return asignatura_cod
+
+    def validate_aula_cod(self, aula_cod):
+        if not aula_cod:
+            raise serializers.ValidationError('Debe asignar un aula.')
+        return aula_cod
+
+    def validate_grupo_cod(self, grupo_cod):
+        if not grupo_cod:
+            raise serializers.ValidationError('Debe asignar un grupo.')
+        return grupo_cod
+
+    def validate_periodo_cod(self, periodo_cod):
+        if not (1 <= periodo_cod <= 9):
+            raise serializers.ValidationError('El periodo debe estar entre 1 y 2.')
+        return periodo_cod
+
+
+
+
+
+    
 class AusenciaSerializer(serializers.ModelSerializer):
    class Meta:
        model = Ausencia
@@ -65,11 +115,12 @@ class AusenciaSerializer(serializers.ModelSerializer):
 
 
 
+
 #SERIALIZADORES:
 class AsignaturaSerializerCreate(serializers.ModelSerializer):
     class Meta:
         model = Asignatura
-        fields = ['asignatura_cod','descripcion']
+        fields = ('asignatura_cod','descripcion')
         
         
     def validate_asignatura_cod(self, asignatura_cod):
@@ -107,7 +158,7 @@ class AsignaturaSerializerCreate(serializers.ModelSerializer):
 class AulaSerializerCreate(serializers.ModelSerializer):
     class Meta:
         model = Aula
-        fields = ['aula_cod','descripcion']
+        fields = ('aula_cod','descripcion')
         
     def validate_aula_cod(self,aula_cod):
         aulaCode = Aula.objects.filter(aula_cod=aula_cod).first()

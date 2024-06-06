@@ -1,5 +1,4 @@
 from django.urls import path
-
 from  .api_views import *
 
 urlpatterns = [
@@ -25,5 +24,9 @@ urlpatterns = [
     #url para subir archivo
     path('upload/', ArchivoUploadView.as_view(), name='archivo-upload'),
     #horarios url:
-    path('horarios/',horarios_list,name='horarios_list')
+    path('horarios/',horarios_list,name='horarios_list'),
+    path('horario/crear', crear_horario, name='create_horario'),
+    path('horario/<str:pk>', get_horario, name='get_horario'),
+    path('horario/<str:pk>/', update_horario, name='update_horario'),
+    path('horario/<str:pk>/', delete_horario, name='delete_horario'),
 ]

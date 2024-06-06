@@ -64,16 +64,26 @@ class Profesor(models.Model):
        return self.nombre
 
 class Horario(models.Model):
-   horario_cod = models.CharField(max_length=50, primary_key=True)
-   profesor_cod = models.ForeignKey(Profesor,on_delete=models.CASCADE)
-   dia = models.CharField(max_length=1)
-   asignatura_cod = models.ForeignKey(Asignatura, on_delete=models.CASCADE)
-   aula_cod = models.ForeignKey(Aula, on_delete=models.CASCADE)
-   grupo_cod = models.ForeignKey(Grupo, on_delete=models.CASCADE)
-   periodo_cod = models.IntegerField()
+    DIAS = (
+        ('L', 'Lunes'),
+        ('M', 'Martes'),
+        ('X', 'Miércoles'),
+        ('J', 'Jueves'),
+        ('V', 'Viernes'),
+        ('S', 'Sábado'),
+        ('D', 'Domingo'),
+    )
+
+    horario_cod = models.CharField(max_length=50, primary_key=True)
+    profesor_cod = models.ForeignKey('Profesor', on_delete=models.CASCADE)
+    dia = models.CharField(max_length=1, choices=DIAS)
+    asignatura_cod = models.ForeignKey('Asignatura', on_delete=models.CASCADE)
+    aula_cod = models.ForeignKey('Aula', on_delete=models.CASCADE)
+    grupo_cod = models.ForeignKey('Grupo', on_delete=models.CASCADE)
+    periodo_cod = models.IntegerField()
 
 
-   def __str__(self):
+    def __str__(self):
        return f"{self.asignatura_cod} - {self.dia} - {self.grupo_cod}"
 
 

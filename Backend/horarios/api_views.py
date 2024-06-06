@@ -754,26 +754,26 @@ def cargar_xml(request, file_path):
         
                 
         # Procesar datos de ausencias
-        for table in root.findall(".//table[@name='ausencias']"):
-            for column in table.findall('column'):
-                ausencia_data = {column.get('name'): column.text for column in table.findall('column')}
-                try:
-                    profesor = Profesor.objects.get(profesor_cod=ausencia_data.get('professor_cod'))
-                    asignatura = Asignatura.objects.get(asignatura_cod=ausencia_data.get('asignatura_cod'))
-                    horario = Horario.objects.get(horario_cod=ausencia_data.get('horario_cod'))
+        # for table in root.findall(".//table[@name='ausencias']"):
+        #     for column in table.findall('column'):
+        #         ausencia_data = {column.get('name'): column.text for column in table.findall('column')}
+        #         try:
+        #             profesor = Profesor.objects.get(profesor_cod=ausencia_data.get('professor_cod'))
+        #             asignatura = Asignatura.objects.get(asignatura_cod=ausencia_data.get('asignatura_cod'))
+        #             horario = Horario.objects.get(horario_cod=ausencia_data.get('horario_cod'))
 
-                    Ausencia.objects.update_or_create(
-                        profesor_cod=profesor,
-                        asignatura_cod=asignatura,
-                        horario_cod=horario,
-                        defaults={
-                            'fecha': ausencia_data.get('fecha') or timezone.now(),
-                            'motivo': ausencia_data.get('motivo')
-                        }
-                    )
-                except (Profesor.DoesNotExist, Asignatura.DoesNotExist, Horario.DoesNotExist) as e:
-                    print(f"Error: {e}. La ausencia no se puede crear o actualizar.")
-                    continue
+        #             Ausencia.objects.update_or_create(
+        #                 profesor_cod=profesor,
+        #                 asignatura_cod=asignatura,
+        #                 horario_cod=horario,
+        #                 defaults={
+        #                     'fecha': ausencia_data.get('fecha') or timezone.now(),
+        #                     'motivo': ausencia_data.get('motivo')
+        #                 }
+        #             )
+        #         except (Profesor.DoesNotExist, Asignatura.DoesNotExist, Horario.DoesNotExist) as e:
+        #             print(f"Error: {e}. La ausencia no se puede crear o actualizar.")
+        #             continue
 
         return Response("Datos cargados exitosamente.", status=status.HTTP_200_OK)
     except Exception as e:
@@ -783,9 +783,59 @@ def cargar_xml(request, file_path):
     
     
 @api_view(['POST'])
+def crear_horario(request):
+    serializer = HorarioSerializerCreate(data=request.data)
+    if serializer.is_valid():
+        try:
+            serializer.save()
+            return Response({"message": "Horario Creado"}, status=status.HTTP_201_CREATED)
+        except Exception as error:
+            print(error)  # Asegúrate de que esto también esté registrado en los logs del servidor
+            return Response({"error": str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    else:
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+def get_horario(request, pk):
+    horario = Horario.objects.get(horario_cod=pk)
+    serializer = HorarioSerializer(horario)
+    return Response(serializer.data)
+
+
+
+@api_view(['PUT'])
+def update_horario(request, pk):
+    try:
+        horario = Horario.objects.get(pk=pk)
+    except Horario.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    serializer = HorarioSerializer(horario, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['DELETE'])
+def delete_horario(request, pk):
+    try:
+        horario = Horario.objects.get(pk=pk)
+    except Horario.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    horario.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
     
-    
-    
+@api_view(['DELETE'])
+def eliminar_ausencia(request, id):
+    ausencia = Ausencia.objects.get(franja_cod=id)
+    try:
+        ausencia.delete()
+        return Response('Ausencia eliminada')
+    except Exception as error:
+        return Response(repr(error), status = status.HTTP_500_INTERNAL_SERVER_ERROR)  
+       
     
     
     
