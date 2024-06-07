@@ -79,12 +79,13 @@ class Horario(models.Model):
     dia = models.CharField(max_length=1, choices=DIAS)
     asignatura_cod = models.ForeignKey('Asignatura', on_delete=models.CASCADE)
     aula_cod = models.ForeignKey('Aula', on_delete=models.CASCADE)
+    franja_cod = models.ForeignKey('Franja', on_delete=models.CASCADE)
     grupo_cod = models.ForeignKey('Grupo', on_delete=models.CASCADE)
     periodo_cod = models.IntegerField()
 
 
     def __str__(self):
-       return f"{self.asignatura_cod} - {self.dia} - {self.grupo_cod}"
+       return f"{self.asignatura_cod} - {self.dia} - {self.grupo_cod} - {self.franja_cod}"
 
 
 

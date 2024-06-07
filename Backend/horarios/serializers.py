@@ -56,9 +56,14 @@ class ProfesorSerializerMejorado(serializers.ModelSerializer):
 
 
 class HorarioSerializer(serializers.ModelSerializer):
-   class Meta:
+    profesor_cod = ProfesorSerializer()
+    asignatura_cod=AsignaturaSerializer()
+    aula_cod= AulaSerializer()
+    franja_cod=FranjaSerializer()
+    grupo_cod=GrupoSerializer()
+    class Meta:
        model = Horario
-       fields = '__all__'
+       fields = ('horario_cod','profesor_cod','dia','asignatura_cod','aula_cod','franja_cod','grupo_cod','periodo_cod')
       
 class HorarioSerializerCreate(serializers.ModelSerializer):
     class Meta:

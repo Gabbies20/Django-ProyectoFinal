@@ -7,7 +7,7 @@ urlpatterns = [
     
     path('horarios/',horarios_list,name='horarios_list'),
     path('grupos/',grupos_list,name='grupos_list'),
-     path('franjas/',franjas_list,name='franjas_list'),
+    path('franjas/',franjas_list,name='franjas_list'),
     path('datos/', xml_data_view, name='xml-data'),
     path('asignaturas/', asignaturas_list, name='asignaturas_list'),
     path('asignaturas/crear',crear_asignatura),
@@ -23,10 +23,13 @@ urlpatterns = [
     path('grupos/', grupos_list, name='_list'),
     #url para subir archivo
     path('upload/', ArchivoUploadView.as_view(), name='archivo-upload'),
+    path('eliminar/archivo',borrar_archivoXML,name='eliminar_archivo'),
     #horarios url:
     path('horarios/',horarios_list,name='horarios_list'),
     path('horario/crear', crear_horario, name='create_horario'),
     path('horario/<str:pk>', get_horario, name='get_horario'),
     path('horario/<str:pk>/', update_horario, name='update_horario'),
     path('horario/<str:pk>/', delete_horario, name='delete_horario'),
+    path('horario/profesor/<str:id>',horario_profesor,name='horario_profesor'),
+    path('horario/grupo/<str:id>',horario_grupo),
 ]
