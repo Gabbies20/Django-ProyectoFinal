@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'rest_framework',
     'corsheaders',
-    'oauth2_provider'
+    'oauth2_provider',
+    'rest_framework_simplejwt'
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware', 
-
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -148,13 +149,29 @@ OAUTH2_PROVIDER = {
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
         #'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
     ),
 
     'DEFAULT_PERMISSION_CLASSES': (
         #'rest_framework.permissions.IsAuthenticated',
     ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,  # Número de elementos por página
+    
+    
 }
+
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+}
+
 
 import environ
 
@@ -166,3 +183,14 @@ environ.Env.read_env()  # Leer archivo .env
 XML_FILE_PATH = env('XML_FILE_PATH', default='/home/gabriela/Desktop/Django-Proyecto/Django-ProyectoFinal/archivos/xml/horarioCompleto.xml')
 
 #LOGIN_URL = '/admin/login/'
+
+CORS_ALLOWED_ORIGINS=[
+    "http://localhost:4200",
+]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'gabriela.pinzon.ochoa.al@iespoligonosur.org'  # Cambia esto a tu correo de servicio
+EMAIL_HOST_PASSWORD = 'Amolamusica++' 

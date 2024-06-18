@@ -1,0 +1,38 @@
+{
+    "sourceFile": "Backend/horarios/api_urls.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1717870062979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1717870071713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     path('eliminar/archivo',borrar_archivoXML,name='eliminar_archivo'),\n     #horarios url:\n     path('horarios/',horarios_list,name='horarios_list'),\n     path('horario/crear', crear_horario, name='create_horario'),\n-    \n+    path('horario/crear', crear_horario, name='create_horario'),\n     path('horario/<str:pk>', get_horario, name='get_horario'),\n     path('horario/<str:pk>/', update_horario, name='update_horario'),\n     path('horario/<str:pk>/', delete_horario, name='delete_horario'),\n     path('horario/profesor/<str:id>',horario_profesor,name='horario_profesor'),\n"
+                },
+                {
+                    "date": 1717870085062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     path('eliminar/archivo',borrar_archivoXML,name='eliminar_archivo'),\n     #horarios url:\n     path('horarios/',horarios_list,name='horarios_list'),\n     path('horario/crear', crear_horario, name='create_horario'),\n-    path('horario/crear', crear_horario, name='create_horario'),\n+    path('horario/editar/crear', crear_horario, name='create_horario'),\n     path('horario/<str:pk>', get_horario, name='get_horario'),\n     path('horario/<str:pk>/', update_horario, name='update_horario'),\n     path('horario/<str:pk>/', delete_horario, name='delete_horario'),\n     path('horario/profesor/<str:id>',horario_profesor,name='horario_profesor'),\n"
+                },
+                {
+                    "date": 1717870091422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     path('eliminar/archivo',borrar_archivoXML,name='eliminar_archivo'),\n     #horarios url:\n     path('horarios/',horarios_list,name='horarios_list'),\n     path('horario/crear', crear_horario, name='create_horario'),\n-    path('horario/editar/crear', crear_horario, name='create_horario'),\n+    path('horario/editar/', crear_horario, name='create_horario'),\n     path('horario/<str:pk>', get_horario, name='get_horario'),\n     path('horario/<str:pk>/', update_horario, name='update_horario'),\n     path('horario/<str:pk>/', delete_horario, name='delete_horario'),\n     path('horario/profesor/<str:id>',horario_profesor,name='horario_profesor'),\n"
+                },
+                {
+                    "date": 1717870096706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     path('eliminar/archivo',borrar_archivoXML,name='eliminar_archivo'),\n     #horarios url:\n     path('horarios/',horarios_list,name='horarios_list'),\n     path('horario/crear', crear_horario, name='create_horario'),\n-    path('horario/editar/<str:p', crear_horario, name='create_horario'),\n+    path('horario/editar/<str:pk', crear_horario, name='create_horario'),\n     path('horario/<str:pk>', get_horario, name='get_horario'),\n     path('horario/<str:pk>/', update_horario, name='update_horario'),\n     path('horario/<str:pk>/', delete_horario, name='delete_horario'),\n     path('horario/profesor/<str:id>',horario_profesor,name='horario_profesor'),\n"
+                },
+                {
+                    "date": 1717870657703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,37 @@\n+from django.urls import path\n+from  .api_views import *\n+\n+urlpatterns = [\n+    path('profesores/', profesores_list, name='profesores_list'),\n+    path('aulas/', aulas_list, name='aulas_list'),\n+    \n+    path('horarios/',horarios_list,name='horarios_list'),\n+    path('grupos/',grupos_list,name='grupos_list'),\n+    path('franjas/',franjas_list,name='franjas_list'),\n+    path('datos/', xml_data_view, name='xml-data'),\n+    path('asignaturas/', asignaturas_list, name='asignaturas_list'),\n+    path('asignaturas/crear',crear_asignatura),\n+    path('asignaturas/editar/<str:id>',editar_asignatura),\n+    path('asignaturas/eliminar/<str:id>',eliminar_asignatura),\n+    path('asignatura/<str:asignatura_cod>',asignaturas_obtener),\n+    #urls para profesores:\n+    path('profesores/', profesores_list, name='profesores_list'),\n+    path('profesor/<str:id>',profesores_obtener),\n+    #URL AULA:\n+    path('aulas/crear',crear_aula),\n+    #url para grupos:\n+    path('grupos/', grupos_list, name='_list'),\n+    #url para subir archivo\n+    path('upload/', ArchivoUploadView.as_view(), name='archivo-upload'),\n+    path('eliminar/archivo',borrar_archivoXML,name='eliminar_archivo'),\n+    #horarios url:\n+    path('horarios/',horarios_list,name='horarios_list'),\n+    path('horario/crear', crear_horario, name='create_horario'),\n+    path('horario/editar/<str:pk>', update_horario, name='actualizar_horario'),\n+    path('horario/eliminar/<str:pk>',delete_horario),\n+    path('horario/<str:pk>', get_horario, name='get_horario'),\n+    path('horario/<str:pk>/', update_horario, name='update_horario'),\n+    path('horario/<str:pk>/', delete_horario, name='delete_horario'),\n+    path('horario/profesor/<str:id>',horario_profesor,name='horario_profesor'),\n+    path('horario/grupo/<str:id>',horario_grupo),\n+]\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1717870062979,
+            "name": "Commit-0",
+            "content": "from django.urls import path\nfrom  .api_views import *\n\nurlpatterns = [\n    path('profesores/', profesores_list, name='profesores_list'),\n    path('aulas/', aulas_list, name='aulas_list'),\n    \n    path('horarios/',horarios_list,name='horarios_list'),\n    path('grupos/',grupos_list,name='grupos_list'),\n    path('franjas/',franjas_list,name='franjas_list'),\n    path('datos/', xml_data_view, name='xml-data'),\n    path('asignaturas/', asignaturas_list, name='asignaturas_list'),\n    path('asignaturas/crear',crear_asignatura),\n    path('asignaturas/editar/<str:id>',editar_asignatura),\n    path('asignaturas/eliminar/<str:id>',eliminar_asignatura),\n    path('asignatura/<str:asignatura_cod>',asignaturas_obtener),\n    #urls para profesores:\n    path('profesores/', profesores_list, name='profesores_list'),\n    path('profesor/<str:id>',profesores_obtener),\n    #URL AULA:\n    path('aulas/crear',crear_aula),\n    #url para grupos:\n    path('grupos/', grupos_list, name='_list'),\n    #url para subir archivo\n    path('upload/', ArchivoUploadView.as_view(), name='archivo-upload'),\n    path('eliminar/archivo',borrar_archivoXML,name='eliminar_archivo'),\n    #horarios url:\n    path('horarios/',horarios_list,name='horarios_list'),\n    path('horario/crear', crear_horario, name='create_horario'),\n    \n    path('horario/<str:pk>', get_horario, name='get_horario'),\n    path('horario/<str:pk>/', update_horario, name='update_horario'),\n    path('horario/<str:pk>/', delete_horario, name='delete_horario'),\n    path('horario/profesor/<str:id>',horario_profesor,name='horario_profesor'),\n    path('horario/grupo/<str:id>',horario_grupo),\n]"
+        }
+    ]
+}

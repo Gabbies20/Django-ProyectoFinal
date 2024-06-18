@@ -1,0 +1,90 @@
+{
+    "sourceFile": "Backend/mysite/settings.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 18,
+            "patches": [
+                {
+                    "date": 1717886760833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1717886769165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n     'django.contrib.auth.middleware.AuthenticationMiddleware',\n     'django.contrib.messages.middleware.MessageMiddleware',\n     'django.middleware.clickjacking.XFrameOptionsMiddleware',\n     'debug_toolbar.middleware.DebugToolbarMiddleware', \n-    \n+    'cors'\n ]\n \n ROOT_URLCONF = 'mysite.urls'\n \n"
+                },
+                {
+                    "date": 1717886777139,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n     'django.contrib.auth.middleware.AuthenticationMiddleware',\n     'django.contrib.messages.middleware.MessageMiddleware',\n     'django.middleware.clickjacking.XFrameOptionsMiddleware',\n     'debug_toolbar.middleware.DebugToolbarMiddleware', \n-    'cors'\n+    'corsheaders.midd'\n ]\n \n ROOT_URLCONF = 'mysite.urls'\n \n"
+                },
+                {
+                    "date": 1717886784127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n     'django.contrib.auth.middleware.AuthenticationMiddleware',\n     'django.contrib.messages.middleware.MessageMiddleware',\n     'django.middleware.clickjacking.XFrameOptionsMiddleware',\n     'debug_toolbar.middleware.DebugToolbarMiddleware', \n-    'corsheaders.midd'\n+    'corsheaders.middleware.Cors'\n ]\n \n ROOT_URLCONF = 'mysite.urls'\n \n"
+                },
+                {
+                    "date": 1717886791682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n     'django.contrib.auth.middleware.AuthenticationMiddleware',\n     'django.contrib.messages.middleware.MessageMiddleware',\n     'django.middleware.clickjacking.XFrameOptionsMiddleware',\n     'debug_toolbar.middleware.DebugToolbarMiddleware', \n-    'corsheaders.middleware.Cors'\n+    'corsheaders.middleware.CorsMiddleware',\n ]\n \n ROOT_URLCONF = 'mysite.urls'\n \n"
+                },
+                {
+                    "date": 1717886808634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -164,5 +164,6 @@\n \n # Leer la variable de entorno\n XML_FILE_PATH = env('XML_FILE_PATH', default='/home/gabriela/Desktop/Django-Proyecto/Django-ProyectoFinal/archivos/xml/horarioCompleto.xml')\n \n-#LOGIN_URL = '/admin/login/'\n\\ No newline at end of file\n+#LOGIN_URL = '/admin/login/'\n+\n"
+                },
+                {
+                    "date": 1717886815003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -166,4 +166,5 @@\n XML_FILE_PATH = env('XML_FILE_PATH', default='/home/gabriela/Desktop/Django-Proyecto/Django-ProyectoFinal/archivos/xml/horarioCompleto.xml')\n \n #LOGIN_URL = '/admin/login/'\n \n+CORS_\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1717886822298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -166,5 +166,5 @@\n XML_FILE_PATH = env('XML_FILE_PATH', default='/home/gabriela/Desktop/Django-Proyecto/Django-ProyectoFinal/archivos/xml/horarioCompleto.xml')\n \n #LOGIN_URL = '/admin/login/'\n \n-CORS_\n\\ No newline at end of file\n+CORS_ALLOWED_ORIGINS\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1717886827924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -166,5 +166,7 @@\n XML_FILE_PATH = env('XML_FILE_PATH', default='/home/gabriela/Desktop/Django-Proyecto/Django-ProyectoFinal/archivos/xml/horarioCompleto.xml')\n \n #LOGIN_URL = '/admin/login/'\n \n-CORS_ALLOWED_ORIGINS\n\\ No newline at end of file\n+CORS_ALLOWED_ORIGINS=[\n+    \"\"\n+]\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1717886835124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -167,6 +167,6 @@\n \n #LOGIN_URL = '/admin/login/'\n \n CORS_ALLOWED_ORIGINS=[\n-    \"\"\n+    \"http://localhost\"\n ]\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1717886842755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -167,6 +167,6 @@\n \n #LOGIN_URL = '/admin/login/'\n \n CORS_ALLOWED_ORIGINS=[\n-    \"http://localhost\"\n+    \"http://localhost:5173\",\n ]\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1717886989660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -167,6 +167,6 @@\n \n #LOGIN_URL = '/admin/login/'\n \n CORS_ALLOWED_ORIGINS=[\n-    \"http://localhost:5173\",\n+    \"http://localhost:4200\",\n ]\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1717927782342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -153,8 +153,9 @@\n \n     'DEFAULT_PERMISSION_CLASSES': (\n         #'rest_framework.permissions.IsAuthenticated',\n     ),\n+    \n }\n \n import environ\n \n"
+                },
+                {
+                    "date": 1717927791102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -153,9 +153,10 @@\n \n     'DEFAULT_PERMISSION_CLASSES': (\n         #'rest_framework.permissions.IsAuthenticated',\n     ),\n-    \n+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',\n+    'PAGE_SIZE': 10,  # Número de elementos por página\n }\n \n import environ\n \n"
+                },
+                {
+                    "date": 1718411167810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,10 @@\n     'crispy_forms',\n     'crispy_bootstrap5',\n     'rest_framework',\n     'corsheaders',\n-    'oauth2_provider'\n+    'oauth2_provider',\n+    'rest_framework_simplejwt'\n ]\n \n MIDDLEWARE = [\n     'django.middleware.security.SecurityMiddleware',\n"
+                },
+                {
+                    "date": 1718411205125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -171,5 +171,6 @@\n #LOGIN_URL = '/admin/login/'\n \n CORS_ALLOWED_ORIGINS=[\n     \"http://localhost:4200\",\n-]\n\\ No newline at end of file\n+]\n+\n"
+                },
+                {
+                    "date": 1718411215606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -156,8 +156,10 @@\n         #'rest_framework.permissions.IsAuthenticated',\n     ),\n     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',\n     'PAGE_SIZE': 10,  # Número de elementos por página\n+    \n+    \n }\n \n import environ\n \n"
+                },
+                {
+                    "date": 1718411234700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -148,8 +148,9 @@\n }\n \n REST_FRAMEWORK = {\n     'DEFAULT_AUTHENTICATION_CLASSES': (\n+        'rest_framework_simplejwt.authentication.JWTAuthentication',\n         #'oauth2_provider.contrib.rest_framework.OAuth2Authentication',\n     ),\n \n     'DEFAULT_PERMISSION_CLASSES': (\n"
+                },
+                {
+                    "date": 1718411259465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -161,8 +161,19 @@\n     \n     \n }\n \n+\n+from datetime import timedelta\n+\n+SIMPLE_JWT = {\n+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),\n+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),\n+    'ROTATE_REFRESH_TOKENS': False,\n+    'BLACKLIST_AFTER_ROTATION': True,\n+}\n+\n+\n import environ\n \n # Inicializar environ\n env = environ.Env()\n"
+                }
+            ],
+            "date": 1717886760833,
+            "name": "Commit-0",
+            "content": "\"\"\"\nDjango settings for mysite project.\n\nGenerated by 'django-admin startproject' using Django 4.2.13.\n\nFor more information on this file, see\nhttps://docs.djangoproject.com/en/4.2/topics/settings/\n\nFor the full list of settings and their values, see\nhttps://docs.djangoproject.com/en/4.2/ref/settings/\n\"\"\"\n\nfrom pathlib import Path\n\n# Build paths inside the project like this: BASE_DIR / 'subdir'.\nBASE_DIR = Path(__file__).resolve().parent.parent\n\n\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-qrdg)wc(*bl(89xina)2icz-)d00zmxhc528#c29hw_(h3b7xg'\n\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\n\nALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com','0.0.0.0']\n\n\n# Application definition\n\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'bootstrap5',\n    'django_bootstrap_icons',\n    'bootstrap_datepicker_plus',\n    'horarios',\n    'django_seed',\n    'debug_toolbar',\n    'crispy_forms',\n    'crispy_bootstrap5',\n    'rest_framework',\n    'corsheaders',\n    'oauth2_provider'\n]\n\nMIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n    'debug_toolbar.middleware.DebugToolbarMiddleware', \n    \n]\n\nROOT_URLCONF = 'mysite.urls'\n\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',\n                'django.contrib.messages.context_processors.messages',\n            ],\n        },\n    },\n]\n\nWSGI_APPLICATION = 'mysite.wsgi.application'\n\n\n# Database\n# https://docs.djangoproject.com/en/4.2/ref/settings/#databases\n\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n\n\n# Password validation\n# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators\n\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',\n    },\n]\n\n\n# Internationalization\n# https://docs.djangoproject.com/en/4.2/topics/i18n/\n\nLANGUAGE_CODE = 'es'\n\nTIME_ZONE = 'Europe/Madrid'\n\nUSE_I18N = True\n\nUSE_TZ = True\n\n\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\n\nSTATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'static'\n\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\n\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n\n\nAUTH_USER_MODEL = 'horarios.Usuario'\nLOGIN_REDIRECT_URL = 'index'\nLOGOUT_REDIRECT_URL = 'index'\n\n\nOAUTH2_PROVIDER = {\n    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Acceso a los grupos'}\n}\n\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': (\n        #'oauth2_provider.contrib.rest_framework.OAuth2Authentication',\n    ),\n\n    'DEFAULT_PERMISSION_CLASSES': (\n        #'rest_framework.permissions.IsAuthenticated',\n    ),\n}\n\nimport environ\n\n# Inicializar environ\nenv = environ.Env()\nenviron.Env.read_env()  # Leer archivo .env\n\n# Leer la variable de entorno\nXML_FILE_PATH = env('XML_FILE_PATH', default='/home/gabriela/Desktop/Django-Proyecto/Django-ProyectoFinal/archivos/xml/horarioCompleto.xml')\n\n#LOGIN_URL = '/admin/login/'"
+        }
+    ]
+}

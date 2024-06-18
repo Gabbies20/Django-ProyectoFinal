@@ -3,16 +3,14 @@ from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
 
 class Usuario(AbstractUser):
-   ADMINISTRADOR = 1
-   PROFESOR = 2
-   ROLES = (
-       (ADMINISTRADOR,'administrador'),
-       (PROFESOR,'profesor'),
-       )
+    ADMINISTRADOR = 1
+    PROFESOR = 2
+    ROLES = (
+        (ADMINISTRADOR, 'administrador'),
+        (PROFESOR, 'profesor'),
+    )
   
-   rol = models.PositiveSmallIntegerField(
-       choices = ROLES, default=1
-   )
+    rol = models.PositiveSmallIntegerField(choices=ROLES, default=1)
    
 
 class Asignatura(models.Model):
@@ -91,14 +89,12 @@ class Horario(models.Model):
 
 class Ausencia(models.Model):
    profesor_cod = models.ForeignKey(Profesor, on_delete=models.CASCADE)
-   asignatura_cod = models.ForeignKey(Asignatura, on_delete=models.CASCADE)
-   horario_cod = models.ForeignKey(Horario, on_delete=models.CASCADE)
-   fecha = models.DateTimeField(default=timezone.now,blank=True)
+   fecha = models.DateTimeField(default=timezone.now, blank=True)
    motivo = models.TextField(default=True)
 
-
    def __str__(self):
-       return f"Ausencia de {self.profesor_cod.nombre} en {self.asignatura_cod.descripcion} el {self.fecha}"
+       return f"Ausencia de {self.profesor_cod.nombre} el {self.fecha}"
+
 
 class Archivo(models.Model):
     nombre = models.CharField(max_length=100)
