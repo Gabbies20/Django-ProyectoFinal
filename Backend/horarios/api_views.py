@@ -35,26 +35,19 @@ class ArchivoUploadView(APIView):
             try:
                 archivo_instance = archivo_serializer.save()
                 
-                print(f"Archivo instance: {archivo_instance}")
-                
                 archivo_instance.archivo = request.FILES['archivo']
+                archivo_instance.nombre = archivo_instance.archivo.name  # Extraer el nombre del archivo automáticamente
                 archivo_instance.save()
                 
                 file_path = archivo_instance.archivo.path
-                print(file_path)
-                print(f"Archivo guardado en: {file_path}")
-
                 response = cargar_xml(self.request._request, archivo_instance.archivo.path)
-
 
                 return response
 
             except Exception as e:
-                print(f"Error al guardar el archivo: {e}")
                 return Response(f"Error al guardar el archivo: {e}", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         else:
-            print(archivo_serializer.errors)
             return Response(archivo_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
